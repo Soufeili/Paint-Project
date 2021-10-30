@@ -1,0 +1,191 @@
+package com.company;
+
+
+import javax.swing.*;
+import javax.swing.JPanel;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
+
+public class Window extends JFrame implements ActionListener {
+
+    private Drawing d1;
+
+    public Window(String Title, Integer x, Integer y) {
+        super(Title);
+        this.setSize(x,y);
+        this.setVisible(true);                 // afficher la fenêtre
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);       //fermer la fenêtre quand je quittte
+        this.setLocationRelativeTo(null);                 //centrer la fenêtre
+        this.d1=new Drawing();
+
+        JMenuBar m = new JMenuBar();        // Creer Barre de menu
+
+        JMenu menu1=new JMenu("File");           //Creer menu
+        JMenu menu2= new JMenu("A propos");      //Creer menu
+
+        //ButtonGroup groupe = new ButtonGroup();
+
+        JMenuItem new1 = new JMenuItem("New");                  //Creer element de menu
+        JMenuItem open = new JMenuItem("Open");                 //Creer element de menu
+        JMenuItem save = new JMenuItem("Save");                 //Creer element de menu
+        JMenuItem quit = new JMenuItem("Quit");                 //Creer element de menu
+        JMenuItem authors = new JMenuItem("Autors");
+
+        JOptionPane info = new JOptionPane();
+        info.showInternalMessageDialog(info, "Authors : Insert your name", "information", JOptionPane.INFORMATION_MESSAGE);
+
+        //groupe.add(new1);
+        //new1.addItemListener(this);
+        menu1.add(new1);    //Ajouter éléments au menu
+        menu1.addSeparator();
+        menu1.add(open);    //Ajouter éléments au menu
+        menu1.addSeparator();
+        menu1.add(save);    //Ajouter éléments au menu
+        menu1.addSeparator();
+        // save.setAccelerator(KeyStroke.getKeyStroke('S', Toolkit.getDefaultToolkit(),getMenuShortcutKeyMask(),false));
+        menu1.add(quit);    //Ajouter éléments au menu
+
+        menu2.add(authors);
+
+        m.add(menu1);       //Ajouter le menu a la barre de menu
+        m.add(menu2);
+
+        this.setJMenuBar(m);
+
+
+        Container contentPanel = this.getContentPane() ;
+        contentPanel.add(d1,"Center");              //Pour plus tard
+
+        JButton OkButton1 = new JButton("Noir");
+        OkButton1.setBackground(Color.BLACK);
+        JButton OkButton2 = new JButton("Rouge");
+        OkButton2.setBackground(Color.RED);
+        JButton OkButton3 = new JButton("Vert");
+        OkButton3.setBackground(Color.GREEN);
+        JButton OkButton4 = new JButton("Bleu");
+        OkButton4.setBackground(Color.BLUE);
+        JButton OkButton5 = new JButton("Jaune");
+        OkButton5.setBackground(Color.YELLOW);
+        JButton OkButton6 = new JButton("Rose");
+        OkButton6.setBackground(Color.PINK);
+        JButton OkButton7 = new JButton("Magenta");
+        OkButton7.setBackground(Color.MAGENTA);
+        JButton OkButton8 = new JButton("Orange");
+        OkButton8.setBackground(Color.ORANGE);
+        JButton OkButton9 = new JButton("paintPackage.Ellipse");
+        JButton OkButton10 = new JButton("paintPackage.Cercle");
+        JButton OkButton11 = new JButton("paintPackage.Rectangle");
+        JButton OkButton12 = new JButton("paintPackage.Carre");
+
+        JPanel southPanel1 = new JPanel();
+        southPanel1.setLayout(new GridLayout(1,2));
+
+        JPanel southPanel2 = new JPanel();
+        southPanel2.setLayout(new GridLayout(2,4));
+        southPanel2.add(OkButton1);
+        southPanel2.add(OkButton2);
+        southPanel2.add(OkButton3);
+        southPanel2.add(OkButton4);
+        southPanel2.add(OkButton5);
+        southPanel2.add(OkButton6);
+        southPanel2.add(OkButton7);
+        southPanel2.add(OkButton8);
+        contentPanel.add(southPanel2,BorderLayout.SOUTH);
+
+        JPanel southPanel3 = new JPanel();
+        southPanel3.setLayout(new GridLayout(2,2));
+        southPanel3.add(OkButton9);
+        southPanel3.add(OkButton10);
+        southPanel3.add(OkButton11);
+        southPanel3.add(OkButton12);
+        contentPanel.add(southPanel3,BorderLayout.SOUTH);
+
+        southPanel1.add(southPanel2);
+        southPanel1.add(southPanel3);
+
+        OkButton1.addActionListener(this);
+        OkButton2.addActionListener(this);
+        OkButton3.addActionListener(this);
+        OkButton4.addActionListener(this);
+        OkButton5.addActionListener(this);
+        OkButton6.addActionListener(this);
+        OkButton7.addActionListener(this);
+        OkButton8.addActionListener(this);
+        OkButton9.addActionListener(this);
+        OkButton10.addActionListener(this);
+        OkButton11.addActionListener(this);
+        OkButton12.addActionListener(this);
+
+        contentPanel.add(southPanel1,BorderLayout.SOUTH);
+
+
+        this.setVisible(true);    //Fait apparaître la fenêtre
+    }
+
+
+    public static void main (String args[]) {
+        Window win = new Window("Paint", 800, 600);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String cmd=e.getActionCommand();
+
+        switch (cmd) {
+            case "Noir" :
+                System.out.println("Noir have been cliked !");
+                break;
+            case "Rouge" :
+                System.out.println("Rouge have been cliked !");
+                break;
+            case "Vert" :
+                System.out.println("Vert have been cliked !");
+                break;
+            case "Bleu" :
+                System.out.println("Bleu have been cliked !");
+                break;
+            case "Jaune" :
+                System.out.println("Jaune have been cliked !");
+                break;
+            case "Rose" :
+                System.out.println("Rose have been cliked !");
+                break;
+            case "Magenta" :
+                System.out.println("Magenta have been cliked !");
+                break;
+            case "Orange" :
+                System.out.println("Orange have been cliked !");
+                break;
+            case "paintPackage.Ellipse" :
+                System.out.println("Ellipse have been cliked !");
+                break;
+            case "paintPackage.Cercle" :
+                System.out.println("Cercle have been cliked !");
+                break;
+            case "paintPackage.Rectangle" :
+                System.out.println("Rectangle have been cliked !");
+                break;
+            case "paintPackage.Carre" :
+                System.out.println("Carre have been cliked !");
+                break;
+            case "New" :
+                System.out.println("New have been cliked !");
+                break;
+            case "Open" :
+                System.out.println("Open have been cliked !");
+                break;
+            case "Save" :
+                System.out.println("Save have been cliked !");
+                break;
+            case "Quit" :
+                System.out.println("Quit have been cliked !");
+                break;
+            case "Authors" :
+                System.out.println("Authors have been cliked !");
+        }
+    }
+
+}
