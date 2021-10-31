@@ -21,31 +21,26 @@ public class Window extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);                 //centrer la fenêtre
         this.d1=new Drawing();
 
+
         JMenuBar m = new JMenuBar();        // Creer Barre de menu
 
         JMenu menu1=new JMenu("File");           //Creer menu
         JMenu menu2= new JMenu("A propos");      //Creer menu
 
-        //ButtonGroup groupe = new ButtonGroup();
-
         JMenuItem new1 = new JMenuItem("New");                  //Creer element de menu
         JMenuItem open = new JMenuItem("Open");                 //Creer element de menu
         JMenuItem save = new JMenuItem("Save");                 //Creer element de menu
+        save.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, KeyEvent.CTRL_DOWN_MASK));
         JMenuItem quit = new JMenuItem("Quit");                 //Creer element de menu
-        JMenuItem authors = new JMenuItem("Autors");
+        JMenuItem authors = new JMenuItem("About / Authors ...");
+        authors.addActionListener(this::menuNewListener);
 
-        JOptionPane info = new JOptionPane();
-        info.showInternalMessageDialog(info, "Authors : Insert your name", "information", JOptionPane.INFORMATION_MESSAGE);
-
-        //groupe.add(new1);
-        //new1.addItemListener(this);
         menu1.add(new1);    //Ajouter éléments au menu
-        menu1.addSeparator();
+        //menu1.addSeparator();
         menu1.add(open);    //Ajouter éléments au menu
-        menu1.addSeparator();
+        //menu1.addSeparator();
         menu1.add(save);    //Ajouter éléments au menu
         menu1.addSeparator();
-        // save.setAccelerator(KeyStroke.getKeyStroke('S', Toolkit.getDefaultToolkit(),getMenuShortcutKeyMask(),false));
         menu1.add(quit);    //Ajouter éléments au menu
 
         menu2.add(authors);
@@ -61,12 +56,14 @@ public class Window extends JFrame implements ActionListener {
 
         JButton OkButton1 = new JButton("Noir");
         OkButton1.setBackground(Color.BLACK);
+        OkButton1.setForeground(Color.WHITE);
         JButton OkButton2 = new JButton("Rouge");
         OkButton2.setBackground(Color.RED);
         JButton OkButton3 = new JButton("Vert");
         OkButton3.setBackground(Color.GREEN);
         JButton OkButton4 = new JButton("Bleu");
         OkButton4.setBackground(Color.BLUE);
+        OkButton4.setForeground(Color.WHITE);
         JButton OkButton5 = new JButton("Jaune");
         OkButton5.setBackground(Color.YELLOW);
         JButton OkButton6 = new JButton("Rose");
@@ -130,6 +127,11 @@ public class Window extends JFrame implements ActionListener {
         Window win = new Window("Paint", 800, 600);
     }
 
+    private void menuNewListener (ActionEvent event) {
+        JOptionPane info = new JOptionPane();
+        info.showInternalMessageDialog(info, "Authors : Insert your name", "information", JOptionPane.INFORMATION_MESSAGE);
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         String cmd=e.getActionCommand();
@@ -171,20 +173,6 @@ public class Window extends JFrame implements ActionListener {
             case "paintPackage.Carre" :
                 System.out.println("Carre have been cliked !");
                 break;
-            case "New" :
-                System.out.println("New have been cliked !");
-                break;
-            case "Open" :
-                System.out.println("Open have been cliked !");
-                break;
-            case "Save" :
-                System.out.println("Save have been cliked !");
-                break;
-            case "Quit" :
-                System.out.println("Quit have been cliked !");
-                break;
-            case "Authors" :
-                System.out.println("Authors have been cliked !");
         }
     }
 
