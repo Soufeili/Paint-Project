@@ -20,8 +20,14 @@ public class Ellipse  extends Figure {
     }
     public void draw(Graphics g) {}
 
+
+    public double getSurface() { return this.semiAxysX*this.semiAxysY*Math.PI; }
+
     public Integer getSemiAxysX() { return this.semiAxysX; }
+    public void setSemiAxysX(Integer semiAxysX) { this.semiAxysX=semiAxysX; }
+
     public Integer getSemiAxysY() { return this.semiAxysY; }
+    public void setSemiAxysY(Integer semiAxysY) { this.semiAxysY=semiAxysY; }
 
 
     @Override

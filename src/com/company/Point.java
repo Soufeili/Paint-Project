@@ -1,6 +1,8 @@
 package com.company;
 
-public class Point {
+import java.io.Serializable;
+
+public class Point implements Serializable {
     static private Integer X;
     static private Integer Y;
 

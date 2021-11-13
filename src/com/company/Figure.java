@@ -1,8 +1,9 @@
 package com.company;
 
 import java.awt.*;
+import java.io.Serializable;
 
-public abstract class Figure {
+public abstract class Figure implements Serializable {
      public Point origin;
      public java.awt.Color color;
 
