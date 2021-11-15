@@ -18,12 +18,16 @@ public class Point implements Serializable {
     //     this.Y=0;
     // }
 
-    public Integer getX() { return this.X; }
+    public Integer getX() {
+        return this.X;
+    }
     public void setX(Integer a) {
         this.X=a;
     }
 
-    public Integer getY() { return this.Y; }
+    public Integer getY() {
+        return this.Y;
+    }
     public void setY(Integer b) {
         this.Y=b;
     }

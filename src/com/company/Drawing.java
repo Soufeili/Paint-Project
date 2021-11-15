@@ -19,21 +19,41 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
 
 
     public Drawing () {
+        super();
         this.color=Color.BLACK;
-        // this.Figure=Rectangle;
-
-        this.setBackground(Color.white);
+        this.list = new ArrayList<>();
+        this.nameFigure = null;
+        this.x = 0;
+        this.y = 0;
+        this.setBackground(Color.WHITE);
+        addMouseListener(this);
+        addMouseMotionListener(this);
     }
 
-    public void addFigure1 (Ellipse ellipse) { list.add(ellipse); }
-    public void addFigure2 (Circle circle) { list.add(circle); }
-    public void addFigure3 (Rectangle rectangle) { list.add(rectangle); }
-    public void addFigure4 (Square carre) { list.add(carre); }
+    public void addFigure1 (Ellipse ellipse) {
+        list.add(ellipse);
+    }
+    public void addFigure2 (Circle circle) {
+        list.add(circle);
+    }
+    public void addFigure3 (Rectangle rectangle) {
+        list.add(rectangle);
+    }
+    public void addFigure4 (Square carre) {
+        list.add(carre);
+    }
 
 
-    public ArrayList<Figure> getList() { return this.list; }
+    public ArrayList<Figure> getList() {
+        return this.list;
+    }
+    public void setList(ArrayList<Figure> list) {
+        this.list=list;
+    }
 
-    public java.awt.Color getColor() { return this.color; }
+    public java.awt.Color getColor() {
+        return this.color;
+    }
     public void setColor(java.awt.Color c) {
         this.color=c;
     }
@@ -43,7 +63,9 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
         this.nameFigure=n;
     }
 
-    public ArrayList<Figure> getFigure() { return this.list; }
+    public ArrayList<Figure> getFigure() {
+        return this.list;
+    }
     public void setFigure(ArrayList l) {
         this.list=l;
     }
@@ -52,26 +74,46 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
 
 
 
-    public void init() {
-        addMouseListener(this);
-        addMouseMotionListener(this);
+    public void mouseClicked(MouseEvent e) {
+
+        System.out.println("CLiked");
     }
 
 
-    public void mouseClicked(MouseEvent e) { System.out.println("CLiked"); }
+    public void mousePressed(MouseEvent e) {
 
-    public void mousePressed(MouseEvent e) { System.out.println("Pressed"); }
+        System.out.println("Pressed");
+    }
 
-    public void mouseReleased(MouseEvent e) { System.out.println("Released"); }
 
-    public void mouseEntered(MouseEvent e) { System.out.println("Entered"); }
+    public void mouseReleased(MouseEvent e) {
 
-    public void mouseExited(MouseEvent e) { System.out.println("Exited"); }
+        System.out.println("Released");
+    }
 
-    public void mouseDragged(MouseEvent e) { System.out.println("Dragged"); }
 
-    public void mouseMoved(MouseEvent e) { System.out.println("Moved"); }
+    public void mouseEntered(MouseEvent e) {
 
+        System.out.println("Entered");
+    }
+
+
+    public void mouseExited(MouseEvent e) {
+
+        System.out.println("Exited");
+    }
+
+
+    public void mouseDragged(MouseEvent e) {
+
+        System.out.println("Dragged");
+    }
+
+
+    public void mouseMoved(MouseEvent e) {
+
+        System.out.println("Moved");
+    }
 
 
     public void paintComponent(Graphics g) {

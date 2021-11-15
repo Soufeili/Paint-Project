@@ -52,7 +52,7 @@ public class Window extends JFrame implements ActionListener {
 
 
         Container contentPanel = this.getContentPane() ;
-        contentPanel.add(d1,"Center");              //Pour plus tard
+        contentPanel.add(d1,"Center");
 
         JButton OkButton1 = new JButton("Noir");
         OkButton1.setBackground(Color.BLACK);
@@ -115,6 +115,11 @@ public class Window extends JFrame implements ActionListener {
         OkButton10.addActionListener(this);
         OkButton11.addActionListener(this);
         OkButton12.addActionListener(this);
+        new1.addActionListener(this);
+        open.addActionListener(this);
+        save.addActionListener(this);
+        quit.addActionListener(this);
+
 
         contentPanel.add(southPanel1,BorderLayout.SOUTH);
 
@@ -172,6 +177,19 @@ public class Window extends JFrame implements ActionListener {
                 break;
             case "paintPackage.Carre" :
                 System.out.println("Carre have been cliked !");
+                break;
+            case "new1" :
+                System.out.println("New have been cliked !");
+                break;
+            case "open" :
+                System.out.println("Open have been cliked !");
+                break;
+            case "save" :
+                System.out.println("Save have been cliked !");
+                break;
+            case "quit" :
+                System.out.println("Quit have been cliked !");
+                System.exit(0);
                 break;
         }
     }

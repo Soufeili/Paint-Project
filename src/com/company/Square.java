@@ -18,11 +18,19 @@ public class Square extends Rectangle{
     }
     public void draw(Graphics g) {}
 
-    public Integer getLength() { return this.length; }
-    public void setLength(Integer length) { this.length=length; }
+    public Integer getLength() {
+        return this.length;
+    }
+    public void setLength(Integer length) {
+        this.length=length;
+    }
 
-    public Integer getWidth() { return this.width; }              //Useless
-    public void setWidth(Integer width) { this.width=width; }     //Useless
+    public Integer getWidth() {
+        return this.width;
+    }              //Useless
+    public void setWidth(Integer width) {
+        this.width=width;
+    }     //Useless
 
 
 

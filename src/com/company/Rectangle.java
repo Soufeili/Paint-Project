@@ -23,15 +23,27 @@ public class Rectangle extends Figure {
     }
 
 
-    public Integer getPerimeter() { return 2*this.length + 2*this.width ; }
+    public Integer getPerimeter() {
+        return 2*this.length + 2*this.width ;
+    }
 
-    public Integer getSurface() { return this.length*this.width; }
+    public Integer getSurface() {
+        return this.length*this.width;
+    }
 
-    public Integer getLength() { return this.length; }
-    public void setLength(Integer length) { this.length=length; }
+    public Integer getLength() {
+        return this.length;
+    }
+    public void setLength(Integer length) {
+        this.length=length;
+    }
 
-    public Integer getWidth() { return this.width; }
-    public void setWidth(Integer width) { this.width=width; }
+    public Integer getWidth() {
+        return this.width;
+    }
+    public void setWidth(Integer width) {
+        this.width=width;
+    }
 
 
     @Override

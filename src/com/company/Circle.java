@@ -18,11 +18,19 @@ public class Circle extends Ellipse {
     }
     public void draw(Graphics g) {}
 
-    public Integer getSemiAxysX() { return this.semiAxysX; }
-    public void setSemiAxysX(Integer semiAxysX) { this.semiAxysX=semiAxysX; }
+    public Integer getSemiAxysX() {
+        return this.semiAxysX;
+    }
+    public void setSemiAxysX(Integer semiAxysX) {
+        this.semiAxysX=semiAxysX;
+    }
 
-    public Integer getSemiAxysY() { return this.semiAxysY; }                     //Useless
-    public void setSemiAxysY(Integer semiAxysY) { this.semiAxysY=semiAxysY; }    //Useless
+    public Integer getSemiAxysY() {
+        return this.semiAxysY;
+    }                     //Useless
+    public void setSemiAxysY(Integer semiAxysY) {
+        this.semiAxysY=semiAxysY;
+    }    //Useless
 
 
     @Override

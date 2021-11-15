@@ -17,8 +17,12 @@ public abstract class Figure implements Serializable {
      public abstract void setBoundingBox(Integer heightBB, Integer widthBB);
      public abstract void draw(Graphics g);
 
-     public java.awt.Color getColor() { return this.color; }
-     public Point getOrigin() { return this.origin; }
+     public java.awt.Color getColor() {
+          return this.color;
+     }
+     public Point getOrigin() {
+          return this.origin;
+     }
 
 
      @Override
