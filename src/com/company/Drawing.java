@@ -16,11 +16,14 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
     public String nameFigure;
     public Integer x;
     public Integer y;
+    public Point mouse1;
+    public Point mouse2;
+    Figure figure;
 
 
-    public Drawing () {
+    public Drawing() {
         super();
-        this.color=Color.BLACK;
+        this.color = Color.BLACK;
         this.list = new ArrayList<>();
         this.nameFigure = null;
         this.x = 0;
@@ -30,63 +33,87 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
         addMouseMotionListener(this);
     }
 
-    public void addFigure1 (Ellipse ellipse) {
-        list.add(ellipse);
+    public void creerList() {
+        list.remove(list.size() - 1);
     }
-    public void addFigure2 (Circle circle) {
-        list.add(circle);
-    }
-    public void addFigure3 (Rectangle rectangle) {
-        list.add(rectangle);
-    }
-    public void addFigure4 (Square carre) {
-        list.add(carre);
-    }
-
 
     public ArrayList<Figure> getList() {
         return this.list;
     }
+
     public void setList(ArrayList<Figure> list) {
-        this.list=list;
+        this.list = list;
     }
 
     public java.awt.Color getColor() {
         return this.color;
     }
-    public void setColor(java.awt.Color c) {
-        this.color=c;
+
+    public void setColor(java.awt.Color color) {
+        this.color = color;
     }
 
-    public String getNameFigure() { return this.nameFigure; }
-    public void setNameFigure(String n) {
-        this.nameFigure=n;
+    public String getNameFigure() {
+        return this.nameFigure;
     }
 
-    public ArrayList<Figure> getFigure() {
-        return this.list;
+    public void setNameFigure(String nameFigure) {
+        this.nameFigure = nameFigure;
     }
-    public void setFigure(ArrayList l) {
-        this.list=l;
-    }
-
-    //private ArrayList<Figure> list = new ArrayList<>();
-
 
 
     public void mouseClicked(MouseEvent e) {
 
-        System.out.println("CLiked");
+        System.out.println("CLiked");               //Useless
     }
 
 
     public void mousePressed(MouseEvent e) {
+        if (color != Color.WHITE) {
+            mouse1 = new Point(e.getX(), e.getY());
+            switch (nameFigure) {
+                case "paintPackage.Rectangle":
+                    list.add(figure = new Rectangle(mouse1.getX(), mouse1.getY(), color));
+                    break;
+                case "paintPackage.Carre":
+                    list.add(figure = new Square(mouse1.getX(), mouse1.getY(), color));
+                    break;
+                case "paintPackage.Ellipse":
+                    list.add(figure = new Ellipse(mouse1.getX(), mouse1.getY(), color));
+                    break;
+                case "paintPackage.Cercle":
+                    list.add(figure = new Circle(mouse1.getX(), mouse1.getY(), color));
+                    break;
+            }
+        }
+        System.out.println(list);
+        repaint();
 
         System.out.println("Pressed");
     }
 
 
+    public void mouseDragged(MouseEvent e) {
+        mouse2 = new Point(e.getX(), e.getY());
+        Integer l1 = (mouse2.getX()- mouse1.getX());
+        Integer l2 = (mouse2.getY()- mouse1.getY());
+        figure.setBoundingBox(l1, l2);
+
+        repaint();
+
+        System.out.println("Dragged");
+    }
+
+
     public void mouseReleased(MouseEvent e) {
+        mouse2.setX(e.getX());
+        mouse2.setY(e.getY());
+        Integer l1 = (mouse2.getX()- mouse1.getX());
+        Integer l2 = (mouse2.getY()- mouse1.getY());
+        figure.setBoundingBox(l1, l2);
+        System.out.println(list);
+
+        repaint();
 
         System.out.println("Released");
     }
@@ -94,39 +121,33 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
 
     public void mouseEntered(MouseEvent e) {
 
-        System.out.println("Entered");
+        System.out.println("Entered");              //Useless
     }
 
 
     public void mouseExited(MouseEvent e) {
 
-        System.out.println("Exited");
-    }
-
-
-    public void mouseDragged(MouseEvent e) {
-
-        System.out.println("Dragged");
+        System.out.println("Exited");               //Usesless
     }
 
 
     public void mouseMoved(MouseEvent e) {
 
-        System.out.println("Moved");
+        System.out.println("Moved");                 //Useless
     }
 
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(getColor());
-      //  g.drawRect(x,y,width,height);
-
-
+        setBackground(Color.WHITE);
+        for (Figure f : list) {
+            f.draw(g);
+            this.repaint();
+        }
     }
 
 
-
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
     }
 

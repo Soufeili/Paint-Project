@@ -19,7 +19,9 @@ public class Rectangle extends Figure {
         this.width = widthBB;
     }
     public void draw(Graphics g) {
-      //   g.drawRect(px,py,width,length);
+        g.setColor(color);
+        // g.drawRect(origin.getX(),origin.getY(),width,length);
+        g.fillRect(origin.getX(),origin.getY(),width,length);
     }
 
 

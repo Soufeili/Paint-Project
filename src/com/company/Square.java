@@ -16,7 +16,11 @@ public class Square extends Rectangle{
         this.length = Math.min(heightBB,widthBB);
         this.width = Math.min(heightBB,widthBB);
     }
-    public void draw(Graphics g) {}
+    // public void draw(Graphics g) {
+        // g.setColor(color);
+        // g.drawRect(origin.getX(),origin.getY(),width,length);
+        // g.fillRect(origin.getX(),origin.getY(),width,length);
+    // }
 
     public Integer getLength() {
         return this.length;

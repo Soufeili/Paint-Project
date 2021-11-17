@@ -16,7 +16,11 @@ public class Circle extends Ellipse {
         this.semiAxysX=Math.min(widthBB/2,heightBB/2);
         this.semiAxysY=Math.min(widthBB/2,heightBB/2);
     }
-    public void draw(Graphics g) {}
+    // public void draw(Graphics g) {
+        // g.setColor(color);
+        // g.drawOval(origin.getX(),origin.getY(),semiAxysX*2,semiAxysY*2);
+        // g.fillOval(origin.getX(),origin.getY(),semiAxysX*2,semiAxysY*2);
+    // }
 
     public Integer getSemiAxysX() {
         return this.semiAxysX;

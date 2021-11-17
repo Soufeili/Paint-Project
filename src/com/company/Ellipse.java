@@ -18,7 +18,11 @@ public class Ellipse  extends Figure {
         this.semiAxysX=heightBB/2;
         this.semiAxysY=widthBB/2;
     }
-    public void draw(Graphics g) {}
+    public void draw(Graphics g) {
+        g.setColor(color);
+        // g.drawOval(origin.getX(),origin.getY(),semiAxysX*2,semiAxysY*2);
+        g.fillOval(origin.getX(),origin.getY(),semiAxysX*2,semiAxysY*2);
+    }
 
 
     public double getSurface() {
