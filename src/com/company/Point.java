@@ -3,13 +3,13 @@ package com.company;
 import java.io.Serializable;
 
 public class Point implements Serializable {
-    static private Integer X;
-    static private Integer Y;
+    private Integer X;
+    private Integer Y;
 
 
     public Point(Integer a, Integer b) {
-        this.X=a;
-        this.Y=b;
+        X = a;
+        Y = b;
     }
 
 
@@ -19,14 +19,14 @@ public class Point implements Serializable {
     // }
 
     public Integer getX() {
-        return this.X;
+        return X;
     }
     public void setX(Integer a) {
         this.X=a;
     }
 
     public Integer getY() {
-        return this.Y;
+        return Y;
     }
     public void setY(Integer b) {
         this.Y=b;

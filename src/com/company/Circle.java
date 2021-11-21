@@ -7,15 +7,17 @@ public class Circle extends Ellipse {
 
     public Circle(Integer px, Integer py, Color c) {
         super(px, py, c);
-        this.semiAxysX=0;
-        this.semiAxysY=0;
+        setBoundingBox(0,0);
     }
 
 
+    @Override
     public void setBoundingBox(Integer heightBB, Integer widthBB) {
+        super.setBoundingBox(heightBB, widthBB);
         this.semiAxysX=Math.min(widthBB/2,heightBB/2);
         this.semiAxysY=Math.min(widthBB/2,heightBB/2);
     }
+
     // public void draw(Graphics g) {
         // g.setColor(color);
         // g.drawOval(origin.getX(),origin.getY(),semiAxysX*2,semiAxysY*2);

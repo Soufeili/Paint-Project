@@ -3,24 +3,26 @@ package com.company;
 import java.awt.*;
 
 public class Rectangle extends Figure {
-    public static Integer length;
-    public static Integer width;
+    public Integer length;
+    public Integer width;
 
 
     public Rectangle(Integer px, Integer py, Color c) {
-        super(new Point(px, py), c);
-        this.length = 0;
-        this.width = 0;
+        super(c, new Point(px, py));
+        setBoundingBox(0,0);
     }
 
 
+    @Override
     public void setBoundingBox(Integer heightBB, Integer widthBB) {
-        this.length = heightBB;
-        this.width = widthBB;
+        length = widthBB;
+        width = heightBB;
     }
+
+    @Override
     public void draw(Graphics g) {
         g.setColor(color);
-        // g.drawRect(origin.getX(),origin.getY(),width,length);
+        g.drawRect(origin.getX(),origin.getY(),width,length);
         g.fillRect(origin.getX(),origin.getY(),width,length);
     }
 
@@ -37,15 +39,34 @@ public class Rectangle extends Figure {
         return this.length;
     }
     public void setLength(Integer length) {
-        this.length=length;
+        this.length = length;
     }
 
     public Integer getWidth() {
         return this.width;
     }
     public void setWidth(Integer width) {
-        this.width=width;
+        this.width = width;
     }
+
+    @Override
+    public Point getOrigin() {
+        return super.getOrigin();
+    }
+    @Override
+    public void setOrigin(Point origin) {
+        super.setOrigin(origin);
+    }
+
+    @Override
+    public java.awt.Color getColor() {
+        return super.getColor();
+    }
+    @Override
+    public void setColor(java.awt.Color color) {
+        super.setColor(color);
+    }
+
 
 
     @Override

@@ -8,20 +8,21 @@ public class Ellipse  extends Figure {
 
 
     public Ellipse (Integer px, Integer py, Color c) {
-        super(new Point(px,py), c);
-        this.semiAxysX=0;
-        this.semiAxysY=0;
+        super(c, new Point(px,py));
+        setBoundingBox(0,0);
     }
 
 
+    @Override
     public void setBoundingBox(Integer heightBB, Integer widthBB) {
-        this.semiAxysX=heightBB/2;
-        this.semiAxysY=widthBB/2;
+        this.semiAxysX = heightBB/2;
+        this.semiAxysY = widthBB/2;
     }
+    @Override
     public void draw(Graphics g) {
         g.setColor(color);
-        // g.drawOval(origin.getX(),origin.getY(),semiAxysX*2,semiAxysY*2);
-        g.fillOval(origin.getX(),origin.getY(),semiAxysX*2,semiAxysY*2);
+        g.drawOval(origin.getX(), origin.getY(), semiAxysX*2, semiAxysY*2);
+        g.fillOval(origin.getX(), origin.getY(), semiAxysX*2, semiAxysY*2);
     }
 
 
@@ -41,6 +42,24 @@ public class Ellipse  extends Figure {
     }
     public void setSemiAxysY(Integer semiAxysY) {
         this.semiAxysY=semiAxysY;
+    }
+
+    @Override
+    public Point getOrigin() {
+        return super.getOrigin();
+    }
+    @Override
+    public void setOrigin(Point origin) {
+        super.setOrigin(origin);
+    }
+
+    @Override
+    public java.awt.Color getColor() {
+        return super.getColor();
+    }
+    @Override
+    public void setColor(java.awt.Color color) {
+        super.setColor(color);
     }
 
 

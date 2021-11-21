@@ -7,15 +7,17 @@ public class Square extends Rectangle{
 
     public Square(Integer px, Integer py, Color c) {
         super(px, py, c);
-        this.length=0;
-        this.width=0;
+        setBoundingBox(0,0);
     }
 
 
+    @Override
     public void setBoundingBox(Integer heightBB, Integer widthBB) {
-        this.length = Math.min(heightBB,widthBB);
-        this.width = Math.min(heightBB,widthBB);
+        super.setBoundingBox(heightBB, widthBB);
+        length = Math.min(heightBB,widthBB);
+        width = Math.min(heightBB,widthBB);
     }
+
     // public void draw(Graphics g) {
         // g.setColor(color);
         // g.drawRect(origin.getX(),origin.getY(),width,length);

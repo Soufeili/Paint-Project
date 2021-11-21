@@ -7,11 +7,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 
 public class Window extends JFrame implements ActionListener {
-
     private Drawing d1;
+
 
     public Window(String Title, Integer x, Integer y) {
         super(Title);
@@ -28,10 +29,13 @@ public class Window extends JFrame implements ActionListener {
         JMenu menu2= new JMenu("A propos");      //Creer menu
 
         JMenuItem new1 = new JMenuItem("New");                  //Creer element de menu
+        new1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_DOWN_MASK));
         JMenuItem open = new JMenuItem("Open");                 //Creer element de menu
+        open.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, KeyEvent.CTRL_DOWN_MASK));
         JMenuItem save = new JMenuItem("Save");                 //Creer element de menu
         save.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, KeyEvent.CTRL_DOWN_MASK));
         JMenuItem quit = new JMenuItem("Quit");                 //Creer element de menu
+        quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.CTRL_DOWN_MASK));
         JMenuItem authors = new JMenuItem("About / Authors ...");
         authors.addActionListener(this::menuNewListener);
 
@@ -143,51 +147,64 @@ public class Window extends JFrame implements ActionListener {
 
         switch (cmd) {
             case "Noir" :
+                d1.setColor(Color.BLACK);
                 System.out.println("Noir have been cliked !");
                 break;
             case "Rouge" :
+                d1.setColor(Color.RED);
                 System.out.println("Rouge have been cliked !");
                 break;
             case "Vert" :
+                d1.setColor(Color.GREEN);
                 System.out.println("Vert have been cliked !");
                 break;
             case "Bleu" :
+                d1.setColor(Color.BLUE);
                 System.out.println("Bleu have been cliked !");
                 break;
             case "Jaune" :
+                d1.setColor(Color.YELLOW);
                 System.out.println("Jaune have been cliked !");
                 break;
             case "Rose" :
+                d1.setColor(Color.PINK);
                 System.out.println("Rose have been cliked !");
                 break;
             case "Magenta" :
+                d1.setColor(Color.MAGENTA);
                 System.out.println("Magenta have been cliked !");
                 break;
             case "Orange" :
+                d1.setColor(Color.ORANGE);
                 System.out.println("Orange have been cliked !");
                 break;
             case "paintPackage.Ellipse" :
+                d1.nameFigure="paintPackage.Ellipse";
                 System.out.println("Ellipse have been cliked !");
                 break;
             case "paintPackage.Cercle" :
+                d1.nameFigure="paintPackage.Cercle";
                 System.out.println("Cercle have been cliked !");
                 break;
             case "paintPackage.Rectangle" :
+                d1.nameFigure="paintPackage.Rectangle";
                 System.out.println("Rectangle have been cliked !");
                 break;
             case "paintPackage.Carre" :
+                d1.nameFigure="paintPackage.Carre";
                 System.out.println("Carre have been cliked !");
                 break;
-            case "new1" :
+            case "New" :
                 System.out.println("New have been cliked !");
+                d1.setList(new ArrayList<>());
                 break;
-            case "open" :
+            case "Open" :
                 System.out.println("Open have been cliked !");
                 break;
-            case "save" :
+            case "Save" :
                 System.out.println("Save have been cliked !");
                 break;
-            case "quit" :
+            case "Quit" :
                 System.out.println("Quit have been cliked !");
                 System.exit(0);
                 break;

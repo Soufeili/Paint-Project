@@ -5,9 +5,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.awt.Component;
 import java.util.ArrayList;
-import java.util.regex.Pattern;
 
 
 public class Drawing extends JPanel implements MouseListener, MouseMotionListener {
@@ -23,19 +21,19 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
 
     public Drawing() {
         super();
-        this.color = Color.BLACK;
-        this.list = new ArrayList<>();
-        this.nameFigure = null;
-        this.x = 0;
-        this.y = 0;
+        color = Color.WHITE;
+        list = new ArrayList<>();
+        nameFigure = null;
+        x = 0;
+        y = 0;
         this.setBackground(Color.WHITE);
         addMouseListener(this);
         addMouseMotionListener(this);
     }
 
-    public void creerList() {
-        list.remove(list.size() - 1);
-    }
+    // public void creerList() {
+    //    list.remove(list.size() - 1);
+    //}
 
     public ArrayList<Figure> getList() {
         return this.list;
@@ -62,12 +60,14 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
     }
 
 
+    @Override
     public void mouseClicked(MouseEvent e) {
 
         System.out.println("CLiked");               //Useless
     }
 
 
+    @Override
     public void mousePressed(MouseEvent e) {
         if (color != Color.WHITE) {
             mouse1 = new Point(e.getX(), e.getY());
@@ -93,6 +93,7 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
     }
 
 
+    @Override
     public void mouseDragged(MouseEvent e) {
         mouse2 = new Point(e.getX(), e.getY());
         Integer l1 = (mouse2.getX()- mouse1.getX());
@@ -101,10 +102,11 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
 
         repaint();
 
-        System.out.println("Dragged");
+        System.out.println("Dragged"+mouse1.getX() +"et"+mouse1.getY()+" et "+this.figure.getClass());
     }
 
 
+    @Override
     public void mouseReleased(MouseEvent e) {
         mouse2.setX(e.getX());
         mouse2.setY(e.getY());
@@ -119,24 +121,28 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
     }
 
 
+    @Override
     public void mouseEntered(MouseEvent e) {
 
         System.out.println("Entered");              //Useless
     }
 
 
+    @Override
     public void mouseExited(MouseEvent e) {
 
         System.out.println("Exited");               //Usesless
     }
 
 
+    @Override
     public void mouseMoved(MouseEvent e) {
 
-        System.out.println("Moved");                 //Useless
+     //   System.out.println("Moved");                 //Useless
     }
 
 
+    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         setBackground(Color.WHITE);
