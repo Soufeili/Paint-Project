@@ -1,7 +1,8 @@
 package com.company;
 
-import java.awt.*;
+import java.awt.Graphics;
 import java.io.Serializable;
+
 
 public abstract class Figure implements Serializable {
      public java.awt.Color color;
@@ -20,26 +21,27 @@ public abstract class Figure implements Serializable {
 
 
      public abstract void setBoundingBox(Integer heightBB, Integer widthBB);
+     public abstract void setBoundingBox(Point a, Point b);
      public abstract void draw(Graphics g);
 
      public java.awt.Color getColor() {
           return this.color;
      }
      public void setColor(java.awt.Color color) {
-          this.color=color;
+          this.color = color;
      }
 
      public Point getOrigin() {
           return this.origin;
      }
      public void setOrigin(Point origin) {
-          this.origin=origin;
+          this.origin = origin;
      }
 
 
      @Override
      public String toString() {
-          System.out.println("Color :"+this.getColor()+"  Origin :("+this.getOrigin()+")");
+          System.out.println("Color :" + this.getColor() + "  Origin :(" + this.getOrigin() + ")");
           return null;
      }
 

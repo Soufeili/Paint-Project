@@ -1,7 +1,8 @@
 package com.company;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -31,9 +32,6 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
         addMouseMotionListener(this);
     }
 
-    // public void creerList() {
-    //    list.remove(list.size() - 1);
-    //}
 
     public ArrayList<Figure> getList() {
         return this.list;
@@ -96,13 +94,14 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
     @Override
     public void mouseDragged(MouseEvent e) {
         mouse2 = new Point(e.getX(), e.getY());
-        Integer l1 = (mouse2.getX()- mouse1.getX());
-        Integer l2 = (mouse2.getY()- mouse1.getY());
-        figure.setBoundingBox(l1, l2);
+        //Integer l1 = (mouse2.getX() - mouse1.getX());
+        //Integer l2 = (mouse2.getY() - mouse1.getY());
+        //figure.setBoundingBox(l1, l2);
+        figure.setBoundingBox(mouse1, mouse2);
 
         repaint();
 
-        System.out.println("Dragged"+mouse1.getX() +"et"+mouse1.getY()+" et "+this.figure.getClass());
+        System.out.println("Dragged"+mouse1.getX() + "et" + mouse1.getY() + " et " + this.figure.getClass());
     }
 
 
@@ -110,9 +109,10 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
     public void mouseReleased(MouseEvent e) {
         mouse2.setX(e.getX());
         mouse2.setY(e.getY());
-        Integer l1 = (mouse2.getX()- mouse1.getX());
-        Integer l2 = (mouse2.getY()- mouse1.getY());
-        figure.setBoundingBox(l1, l2);
+        //Integer l1 = (mouse2.getX() - mouse1.getX());
+        //Integer l2 = (mouse2.getY() - mouse1.getY());
+        //figure.setBoundingBox(l1, l2);
+        figure.setBoundingBox(mouse1, mouse2);
         System.out.println(list);
 
         repaint();

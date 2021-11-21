@@ -1,9 +1,18 @@
 package com.company;
 
 
-import javax.swing.*;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.*;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
+import javax.swing.JMenu;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.GridLayout;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -16,17 +25,17 @@ public class Window extends JFrame implements ActionListener {
 
     public Window(String Title, Integer x, Integer y) {
         super(Title);
-        this.setSize(x,y);
+        this.setSize(x, y);
         this.setVisible(true);                 // afficher la fenêtre
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);       //fermer la fenêtre quand je quittte
         this.setLocationRelativeTo(null);                 //centrer la fenêtre
-        this.d1=new Drawing();
+        this.d1 = new Drawing();
 
 
         JMenuBar m = new JMenuBar();        // Creer Barre de menu
 
-        JMenu menu1=new JMenu("File");           //Creer menu
-        JMenu menu2= new JMenu("A propos");      //Creer menu
+        JMenu menu1 = new JMenu("File");           //Creer menu
+        JMenu menu2 = new JMenu("A propos");      //Creer menu
 
         JMenuItem new1 = new JMenuItem("New");                  //Creer element de menu
         new1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_DOWN_MASK));
@@ -82,10 +91,10 @@ public class Window extends JFrame implements ActionListener {
         JButton OkButton12 = new JButton("paintPackage.Carre");
 
         JPanel southPanel1 = new JPanel();
-        southPanel1.setLayout(new GridLayout(1,2));
+        southPanel1.setLayout(new GridLayout(1, 2));
 
         JPanel southPanel2 = new JPanel();
-        southPanel2.setLayout(new GridLayout(2,4));
+        southPanel2.setLayout(new GridLayout(2, 4));
         southPanel2.add(OkButton1);
         southPanel2.add(OkButton2);
         southPanel2.add(OkButton3);
@@ -94,15 +103,15 @@ public class Window extends JFrame implements ActionListener {
         southPanel2.add(OkButton6);
         southPanel2.add(OkButton7);
         southPanel2.add(OkButton8);
-        contentPanel.add(southPanel2,BorderLayout.SOUTH);
+        contentPanel.add(southPanel2, BorderLayout.SOUTH);
 
         JPanel southPanel3 = new JPanel();
-        southPanel3.setLayout(new GridLayout(2,2));
+        southPanel3.setLayout(new GridLayout(2, 2));
         southPanel3.add(OkButton9);
         southPanel3.add(OkButton10);
         southPanel3.add(OkButton11);
         southPanel3.add(OkButton12);
-        contentPanel.add(southPanel3,BorderLayout.SOUTH);
+        contentPanel.add(southPanel3, BorderLayout.SOUTH);
 
         southPanel1.add(southPanel2);
         southPanel1.add(southPanel3);
@@ -125,7 +134,7 @@ public class Window extends JFrame implements ActionListener {
         quit.addActionListener(this);
 
 
-        contentPanel.add(southPanel1,BorderLayout.SOUTH);
+        contentPanel.add(southPanel1, BorderLayout.SOUTH);
 
 
         this.setVisible(true);    //Fait apparaître la fenêtre
@@ -143,7 +152,7 @@ public class Window extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String cmd=e.getActionCommand();
+        String cmd = e.getActionCommand();
 
         switch (cmd) {
             case "Noir" :
